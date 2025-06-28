@@ -1,0 +1,62 @@
+export interface ProductAttributeType {
+  title: string;
+  value: string;
+  description: string;
+  rank: number;
+}
+
+export interface ProductType {
+  name: string;
+  description: string;
+  extraInformation: string;
+  excerpt: string;
+  condition: string;
+  idin: string;
+  attributes: ProductAttributeType[];
+  variationItemIds: string[];
+  images: string[];
+  tags: string[];
+  preparationTimeInHours: number;
+  reservableSpanInHours: number;
+  weight: number;
+  weightUnit: string;
+  defaultDischargeType: string;
+  widthInMillimeter: number;
+  heightInMillimeter: number;
+  depthInMillimeter: number;
+  epalInCent: number;
+  ewpInCent: number;
+  ldm: string;
+  hasPallet: boolean;
+  palletType: string;
+  hasExchangeablePallet: boolean;
+  palletCost: number;
+  isDangerousGood: boolean;
+  isFragile: boolean;
+  stackable: boolean;
+  neutralPackaging: boolean;
+  minimumOrderQuantity: number;
+  maximumQuantityPerOrder: number;
+  maximumQuantityPerPallet: number;
+  minimumQuantityPerOrder: number;
+  maxStackableItemUnits: number;
+  pricePerPackage: number;
+  pricePerUnit: number;
+  package: string;
+  unit: string;
+  isStackable: boolean;
+  maxStackableUnits: number;
+  productGroupId: string;
+  productGroupSlug: string;
+  ean: string;
+  upc: string;
+  quantityStepUnit: number;
+  isTemperatureSensitive: boolean;
+  maxTemperature: number;
+  minTemperature: number;
+  isDeliverySensitive: boolean;
+  maxDeliveryTimeInHours: number;
+  itemUnitQuantity: number;
+  itemUnitPerPackage: number;
+  batchId: string;
+}

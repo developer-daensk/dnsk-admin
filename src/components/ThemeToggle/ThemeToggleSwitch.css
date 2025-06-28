@@ -1,0 +1,59 @@
+/* Theme Toggle Switch Styles */
+.theme-toggle-switch-container {
+  align-items: center;
+}
+
+/* Sun and Moon icons */
+.sun-icon,
+.moon-icon {
+  font-size: 16px;
+  transition: all 0.3s ease;
+  opacity: 0.3;
+}
+
+.sun-icon.active {
+  color: #faad14;
+  opacity: 1;
+  transform: rotate(360deg);
+}
+
+.moon-icon.active {
+  color: #1890ff;
+  opacity: 1;
+  transform: rotate(-15deg);
+}
+
+/* Custom switch styles */
+.theme-switch {
+  background-color: #bfbfbf;
+}
+
+.theme-switch.ant-switch-checked {
+  background-color: #1890ff;
+}
+
+.theme-switch .ant-switch-handle {
+  transition: all 0.3s ease;
+}
+
+.theme-switch:hover .ant-switch-handle {
+  transform: scale(1.1);
+}
+
+/* Icon inside switch */
+.theme-switch .anticon {
+  color: #fff;
+  font-size: 12px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .theme-toggle-switch-container {
+    transform: scale(0.9);
+  }
+
+  .sun-icon,
+  .moon-icon {
+    display: none;
+  }
+}

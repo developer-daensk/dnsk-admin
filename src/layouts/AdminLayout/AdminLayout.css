@@ -1,0 +1,359 @@
+/* Admin Layout Styles */
+.ant-layout {
+  overflow: hidden;
+}
+
+.ant-layout-sider {
+  position: fixed !important;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  height: 100vh;
+}
+
+/* Custom Scrollbar Styles */
+.ant-layout-sider::-webkit-scrollbar,
+.site-layout > .ant-layout::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.ant-layout-sider::-webkit-scrollbar-track,
+.site-layout > .ant-layout::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.ant-layout-sider::-webkit-scrollbar-thumb,
+.site-layout > .ant-layout::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.ant-layout-sider::-webkit-scrollbar-thumb:hover,
+.site-layout > .ant-layout::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Firefox Scrollbar */
+.ant-layout-sider,
+.site-layout > .ant-layout {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
+}
+
+.site-layout {
+  margin-left: 250px;
+  transition: margin-left 0.2s ease;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-layout.collapsed {
+  margin-left: 80px;
+}
+
+/* Fixed Header */
+.ant-layout-header {
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Scrollable Content Container */
+.site-layout > .ant-layout {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Important for Firefox */
+}
+
+/* Breadcrumb Container */
+.breadcrumb-container {
+  padding: 16px 24px 0;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.breadcrumb-container .ant-breadcrumb {
+  font-size: 14px;
+}
+
+/* Content Area */
+.site-content {
+  margin: 16px 24px 24px;
+  flex: 1 0 auto; /* Allow content to grow but not shrink */
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  padding: 24px;
+  flex: 1;
+  min-height: 400px; /* Minimum height to prevent footer overlap */
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.content-wrapper:hover {
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.07),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Loading Container */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+/* Footer Styles */
+.admin-footer {
+  margin-top: auto; /* Push footer to bottom */
+  padding: 16px 24px;
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
+  border-radius: 8px;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  flex-shrink: 0; /* Prevent footer from shrinking */
+}
+
+/* Dark Mode Support */
+.ant-layout-sider-dark ~ .site-layout .admin-footer {
+  background: #141414;
+  border-top-color: #303030;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .ant-layout {
+    overflow: visible;
+  }
+
+  .site-layout {
+    margin-left: 0;
+    height: 100vh;
+  }
+
+  .site-layout.collapsed {
+    margin-left: 0;
+  }
+
+  .site-layout > .ant-layout {
+    /* Scrollable container on mobile */
+    min-height: 0;
+  }
+
+  .site-content {
+    margin: 16px 16px 24px;
+    flex: 1 0 auto;
+  }
+
+  .content-wrapper {
+    padding: 16px;
+  }
+
+  /* Footer margins on mobile */
+  .admin-footer {
+    margin: 16px;
+    margin-top: auto;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    text-align: center;
+  }
+
+  .breadcrumb-container {
+    padding: 12px 16px 0;
+  }
+
+  /* Adjust search input width on mobile */
+  .ant-input-affix-wrapper {
+    width: 200px !important;
+  }
+
+  @keyframes slideIn {
+    to {
+      width: 200px;
+    }
+  }
+
+  /* Hide user name on mobile */
+  .ant-space-item span {
+    display: none;
+  }
+
+  /* Make sidebar overlay on mobile */
+  .ant-layout-sider {
+    position: fixed !important;
+    height: 100vh;
+    z-index: 999;
+    left: 0;
+  }
+
+  .ant-layout-sider-collapsed {
+    transform: translateX(-100%);
+  }
+
+  /* Add overlay background when sidebar is open */
+  .ant-layout-sider:not(.ant-layout-sider-collapsed)::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+  }
+}
+
+/* Tablet Responsive */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .site-content {
+    margin: 16px 20px 0;
+  }
+
+  .content-wrapper {
+    padding: 20px;
+  }
+}
+
+/* Sidebar Trigger Button - Hide default */
+.ant-layout-sider-trigger {
+  display: none !important;
+}
+
+/* Navbar Styles */
+.ant-layout-header {
+  height: 64px;
+  line-height: 64px;
+}
+
+/* Fix focus styles for navbar buttons */
+.ant-layout-header .ant-btn:focus,
+.ant-layout-header .ant-btn:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* Add subtle focus indication for accessibility */
+.ant-layout-header .ant-btn:focus-visible {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Dark mode focus styles */
+.ant-layout-sider-dark ~ .site-layout .ant-layout-header .ant-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Remove focus outline from all text buttons in navbar */
+.ant-layout-header .ant-btn-text:focus {
+  background: transparent;
+}
+
+/* Trigger Button - Show on all screen sizes */
+.trigger-button {
+  font-size: 18px !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px !important;
+  transition: all 0.3s ease;
+}
+
+.trigger-button:hover {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #1890ff !important;
+}
+
+.trigger-button:active {
+  transform: scale(0.95);
+}
+
+/* Dark mode trigger button */
+.ant-layout-sider-dark ~ .site-layout .trigger-button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* User Info Styles */
+.ant-dropdown-trigger {
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+/* Search Animation */
+.ant-input-affix-wrapper {
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 300px;
+    opacity: 1;
+  }
+}
+
+/* Fix search input focus styles */
+.ant-layout-header .ant-input-affix-wrapper:focus,
+.ant-layout-header .ant-input-affix-wrapper:focus-within {
+  border-color: #40a9ff !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1) !important;
+}
+
+/* Fix dropdown trigger focus styles */
+.ant-layout-header .ant-dropdown-trigger:focus {
+  outline: none !important;
+}
+
+/* Fix avatar/user dropdown focus */
+.ant-layout-header .ant-space {
+  outline: none !important;
+}
+
+/* Remove focus outline from Space components */
+.ant-layout-header .ant-space:focus,
+.ant-layout-header .ant-space-item:focus {
+  outline: none !important;
+}
+
+/* Notification Badge */
+.ant-badge {
+  line-height: normal;
+}
