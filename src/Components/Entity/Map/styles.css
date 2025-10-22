@@ -1,0 +1,16 @@
+/* Leaflet map styles */
+.leaflet-container {
+    @apply z-0;
+}
+
+.leaflet-popup-content-wrapper {
+    @apply bg-background text-foreground border-border border;
+}
+
+.leaflet-popup-tip {
+    @apply bg-background border-border;
+}
+
+.leaflet-control-attribution {
+    @apply text-muted-foreground text-xs;
+}

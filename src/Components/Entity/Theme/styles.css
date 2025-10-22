@@ -1,0 +1,21 @@
+/* 
+    Hiding with animation:
+    It is necessary so that if for any reason 
+    the init and theme load operations are not executed
+    and this class is not deleted, the page is displayed
+    to the user. 
+*/
+
+.invisible-until-the-theme-is-set {
+    opacity: 0;
+    animation: fadeIn 0.2s linear forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

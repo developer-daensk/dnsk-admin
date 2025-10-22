@@ -1,0 +1,118 @@
+import { getDictionaryGenerator } from "@/Components/Entity/Locale/utils";
+
+const en = {
+  title: "Locations Management",
+  addLocation: "Add Location",
+  assignLocation: "Assign Location",
+  searchPlaceholder: "Search locations...",
+  found: "Found {count} locations",
+  table: {
+    locationId: "Location ID",
+    name: "Name",
+    address: "Address",
+    type: "Type",
+    status: "Status",
+    actions: "Actions",
+  },
+  status: {
+    active: "Active",
+    inactive: "Inactive",
+    pending: "Pending",
+  },
+  types: {
+    office: "Office",
+    warehouse: "Warehouse",
+    store: "Store",
+    factory: "Factory",
+    distribution: "Distribution Center",
+  },
+  form: {
+    addTitle: "Add New Location",
+    editTitle: "Edit Location",
+    name: "Name",
+    namePlaceholder: "Enter location name",
+    address: "Address",
+    addressPlaceholder: "Enter location address",
+    type: "Type",
+    typePlaceholder: "Select location type",
+    status: "Status",
+    statusPlaceholder: "Select status",
+    cancel: "Cancel",
+    save: "Save Location",
+    add: "Add Location",
+  },
+  assignForm: {
+    title: "Assign Existing Location",
+    location: "Select Location",
+    locationPlaceholder: "Select a location",
+    assignmentType: "Assignment Type",
+    assignmentTypePlaceholder: "Select assignment type",
+    assign: "Assign Location",
+  },
+  messages: {
+    locationCreated: "Location created successfully",
+    locationUpdated: "Location updated successfully",
+    locationAssigned: "Location assigned successfully",
+    error: "An error occurred",
+  },
+};
+
+const de = {
+  title: "Standortverwaltung",
+  addLocation: "Standort hinzufügen",
+  assignLocation: "Standort zuweisen",
+  searchPlaceholder: "Standorte suchen...",
+  found: "{count} Standorte gefunden",
+  table: {
+    locationId: "Standort-ID",
+    name: "Name",
+    address: "Adresse",
+    type: "Typ",
+    status: "Status",
+    actions: "Aktionen",
+  },
+  status: {
+    active: "Aktiv",
+    inactive: "Inaktiv",
+    pending: "Ausstehend",
+  },
+  types: {
+    office: "Büro",
+    warehouse: "Lager",
+    store: "Geschäft",
+    factory: "Fabrik",
+    distribution: "Verteilungszentrum",
+  },
+  form: {
+    addTitle: "Neuen Standort hinzufügen",
+    editTitle: "Standort bearbeiten",
+    name: "Name",
+    namePlaceholder: "Standortname eingeben",
+    address: "Adresse",
+    addressPlaceholder: "Standortadresse eingeben",
+    type: "Typ",
+    typePlaceholder: "Standorttyp auswählen",
+    status: "Status",
+    statusPlaceholder: "Status auswählen",
+    cancel: "Abbrechen",
+    save: "Standort speichern",
+    add: "Standort hinzufügen",
+  },
+  assignForm: {
+    title: "Bestehenden Standort zuweisen",
+    location: "Standort auswählen",
+    locationPlaceholder: "Standort auswählen",
+    assignmentType: "Zuweisungstyp",
+    assignmentTypePlaceholder: "Zuweisungstyp auswählen",
+    assign: "Standort zuweisen",
+  },
+  messages: {
+    locationCreated: "Standort erfolgreich erstellt",
+    locationUpdated: "Standort erfolgreich aktualisiert",
+    locationAssigned: "Standort erfolgreich zugewiesen",
+    error: "Ein Fehler ist aufgetreten",
+  },
+};
+
+export type iDictionary = typeof en;
+export const getDictionary = getDictionaryGenerator<typeof en>({ en, de });

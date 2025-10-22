@@ -1,10 +1,6 @@
-export interface ProductAttributeType {
-  title: string;
-  value: string;
-  description: string;
-  rank: number;
-}
+import { PRODUCT_VARIANT_STATUS } from "@/lib/constants/product";
 
+// Main product type for detailed product information
 export interface ProductType {
   name: string;
   description: string;
@@ -12,7 +8,7 @@ export interface ProductType {
   excerpt: string;
   condition: string;
   idin: string;
-  attributes: ProductAttributeType[];
+  attributes: Record<string, unknown>[];
   variationItemIds: string[];
   images: string[];
   tags: string[];
@@ -59,4 +55,36 @@ export interface ProductType {
   itemUnitQuantity: number;
   itemUnitPerPackage: number;
   batchId: string;
+}
+
+// Selected product type for search functionality
+export interface SelectedProductType {
+  id: string;
+  title: string;
+  ean?: string;
+  gtin?: string;
+  upc?: string;
+  idin?: string;
+  image?: string;
+  category: string;
+  price?: number;
+  currency?: string;
+  description?: string;
+}
+
+// Product variant interface
+export interface ProductVariant {
+  id: string;
+  attribute: string;
+  option: string;
+  idin?: string;
+  baseDataStatus:
+    | typeof PRODUCT_VARIANT_STATUS.OPEN
+    | typeof PRODUCT_VARIANT_STATUS.COMPLETED;
+  specificationsStatus:
+    | typeof PRODUCT_VARIANT_STATUS.OPEN
+    | typeof PRODUCT_VARIANT_STATUS.COMPLETED;
+  listingsStatus:
+    | typeof PRODUCT_VARIANT_STATUS.OPEN
+    | typeof PRODUCT_VARIANT_STATUS.COMPLETED;
 }
